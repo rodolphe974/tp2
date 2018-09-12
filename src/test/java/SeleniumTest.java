@@ -90,6 +90,7 @@ public class SeleniumTest {
         //déclaration des éléments que l'on va recherche dans la page
         //saisir le texte "canelé"
         barreRecherche.sendKeys("canelé");
+        barreRecherche.sendKeys(Keys.ARROW_DOWN);
 
         //synchronisation : on attend que le menu déroulant apparaisse avec le bouton recherche google
         //on peut le faire avec Thread.sleep pour fixer un temps (pas ideal)
