@@ -18,10 +18,10 @@ public class SeleniumTest {
     @Before     //permet de préparer les éléments communs à tous les tests
     public void setup(){
         //on va travailler dans chrome
-        //driver = new ChromeDriver();
+        driver = new ChromeDriver();
 
         //on va travailler dans firefox
-        driver = new FirefoxDriver();
+        //driver = new FirefoxDriver();
 
         //on demande l'activation de implicitwait
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
@@ -76,6 +76,9 @@ public class SeleniumTest {
         //déclaration des éléments que l'on va recherche dans la page
         WebElement barreRecherche;
         WebElement boutonRecherche;
+        String expectedText ="Recette de Canelés Bordelais rapides : la recette facile";
+        WebElement premierresultat ;
+
         //repérer le champ de recherche google (on cherche un id unique dans la page puis :)
         barreRecherche = driver.findElement(By.id("lst-ib"));
         //déclaration des éléments que l'on va recherche dans la page
@@ -93,6 +96,11 @@ public class SeleniumTest {
         boutonRecherche = driver.findElement(By.className("lsb"));
         //on clique dessus
         boutonRecherche.click();
+
+        //recherche du premier résultat affiché dans la page par son xpath
+        premierresultat = driver.findElement(By.xpath("//*[@id=\"rso\"]/div[1]/div/div/div/h3/a"));
+        Assert.assertEquals(expectedText, premierresultat.getText());
+
         //juste pour l'exercie on va faire une pause de 1sec mais évidemment en automatisation on ne le fera pas
         Thread.sleep(1000);
     }
