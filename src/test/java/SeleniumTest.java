@@ -44,12 +44,12 @@ public class SeleniumTest {
         //déclaration des éléments dont on va avoir besoin
         WebElement barreRecherche;
         WebElement premierResultat;
-        String expected = "French language - Wikipedia";
+        String expected = "République française - France — Wikipédia";
 
         //repérer le champ de recherche google (on cherche un id unique dans la page puis :)
         barreRecherche = driver.findElement(By.id("lst-ib"));
         //saisir le texte "canelé"
-        barreRecherche.sendKeys("french");
+        barreRecherche.sendKeys("france");
         //taper entree
         barreRecherche.sendKeys(Keys.ENTER);
         //Thread.sleep(1000);
@@ -80,7 +80,7 @@ public class SeleniumTest {
         barreRecherche = driver.findElement(By.id("lst-ib"));
         //déclaration des éléments que l'on va recherche dans la page
         //saisir le texte "canelé"
-        barreRecherche.sendKeys("canele");
+        barreRecherche.sendKeys("canelé");
 
         //synchronisation : on attend que le menu déroulant apparaisse avec le bouton recherche google
         //on peut le faire avec Thread.sleep pour fixer un temps (pas ideal)
