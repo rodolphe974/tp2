@@ -104,7 +104,10 @@ public class SeleniumTest {
         boutonRecherche.click();
 
         //recherche du premier résultat affiché dans la page par son xpath
-        premierresultat = driver.findElement(By.xpath("//*[@id=\"rso\"]/div[1]/div/div/div/h3/a"));
+        //premierresultat = driver.findElement(By.xpath("//*[@id=\"rso\"]/div[1]/div/div/div/h3/a"));
+
+        //recherche du premier element par sa classe
+        premierresultat = driver.findElement(By.cssSelector(".rc>.r>a"));
         Assert.assertEquals(expectedText, premierresultat.getText());
 
         //juste pour l'exercie on va faire une pause de 1sec mais évidemment en automatisation on ne le fera pas
