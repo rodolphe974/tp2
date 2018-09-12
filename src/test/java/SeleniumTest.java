@@ -17,11 +17,17 @@ public class SeleniumTest {
 
     @Before     //permet de préparer les éléments communs à tous les tests
     public void setup(){
-        //on va travailler dans chrome
-        driver = new ChromeDriver();
 
-        //on va travailler dans firefox
-        //driver = new FirefoxDriver();
+        //on créer un string pour stocker le nom du navigateur passé en argument bash
+        String browser = System.getProperty("browser");
+        if (browser == null)
+            //on va travailler dans chrome
+            driver = new ChromeDriver();
+        else if(browser.equals("firefox"))
+            //on va travailler dans chrome
+            driver = new FirefoxDriver();
+        else
+            driver = new ChromeDriver();
 
         //on demande l'activation de implicitwait
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
