@@ -54,7 +54,16 @@ public class SeleniumTest {
         barreRecherche.sendKeys(Keys.ENTER);
         //Thread.sleep(1000);
         //on s'intéresse au résultat
-        premierResultat = driver.findElement(By.xpath("//*[@id=\"rso\"]/div[2]/div/div/div/h3/a"));
+
+        //on peut recherche le premier lien affiché, par son xpath (pas ideal car peut changer d'un moment à l'autre)
+        //(en manuel on clique droit sur le lien > inspecter puis on clique droit sur le code > copier > xpath)
+        //premierResultat = driver.findElement(By.xpath("//*[@id=\"rso\"]/div[2]/div/div/div/h3/a"));
+
+        //on peut aussi faire une recherche en utilisant CSS selector
+        //cela consiste à reperer la class de l'objet  puis l'element qui nous intéresse
+        //pour selectionner une classe on utilise l'opérateur ".", pour une classe fille on utilise ">"
+        //si l'objet comporte 2 classe on fait par exemple ".rc.r"
+        premierResultat = driver.findElement(By.cssSelector(".rc>.r>a"));
         Assert.assertEquals(expected, premierResultat.getText());
 
         //juste pour l'exercie on va faire une pause de 1sec mais évidemment en automatisation on ne le fera pas
