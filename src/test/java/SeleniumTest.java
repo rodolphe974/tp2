@@ -54,7 +54,7 @@ public class SeleniumTest {
         barreRecherche.sendKeys(Keys.ENTER);
         //Thread.sleep(1000);
         //on s'intéresse au résultat
-        premierResultat = driver.findElement(By.xpath("//*[@id=\"rso\"]/div[2]/div/div[1]/div/div/h3/a"));
+        premierResultat = driver.findElement(By.xpath("//*[@id=\"rso\"]/div[2]/div/div/div/h3/a"));
         Assert.assertEquals(expected, premierResultat.getText());
 
         //juste pour l'exercie on va faire une pause de 1sec mais évidemment en automatisation on ne le fera pas
