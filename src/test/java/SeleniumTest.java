@@ -18,7 +18,7 @@ public class SeleniumTest {
     @Before     //permet de préparer les éléments communs à tous les tests
     public void setup(){
 
-        //on créer un string pour stocker le nom du navigateur passé en argument bash
+        //on créer un string pour stocker le nom du navigateur passé en argument batch
         String browser = System.getProperty("browser");
         if (browser == null)
             //on va travailler dans chrome
